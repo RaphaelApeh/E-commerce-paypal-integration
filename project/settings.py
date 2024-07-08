@@ -132,5 +132,7 @@ MEDIA_ROOT = BASE_DIR / 'media'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# Add your own PAYPAL_RECEIVER_EMAIL
 PAYPAL_RECEIVER_EMAIL = config('PAYPAL_RECEIVER_EMAIL')
+# turn it to true in production 
 PAYPAL_TEST = config('PAYPAL_TEST',cast=bool)
