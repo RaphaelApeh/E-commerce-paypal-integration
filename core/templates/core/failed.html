@@ -1,0 +1,13 @@
+{% extends "core/base.html" %}
+{% block title %}{{ product.name }}was cancel{% endblock title %}
+
+{% block body  %}
+<h1>Payment failed for {{ product.name }}</h1>
+<style> 
+    h1{
+        font-family: sans-serif;
+        font-size: large;
+        text-align: center;
+    }
+</style>
+{% endblock %}

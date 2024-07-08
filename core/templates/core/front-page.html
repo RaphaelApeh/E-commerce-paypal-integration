@@ -1,0 +1,56 @@
+{% extends "core/base.html" %}
+{% load static %}
+
+{% block title %}feeds {% endblock %}
+<!--===============HOME==============-->
+{% block body %}
+       <script src="{% static 'js/home.js' %}"></script>
+       <h1 id="change">🖐 Hello User Welcome !</h1>
+       {% include 'core/home.html' %}
+       <style>
+        body{
+            padding: 10px;
+            box-sizing: border-box;
+            font-family: sans-serif;
+            
+         }
+        .item{
+             padding: 0% 0% 0% 0%;
+             /*margin: 100px;*/ 
+        }
+        div.product-container {
+            margin: 5px;
+            border: 1px solid #ccc;
+            float: left;
+            width: 180px;
+            border-color: transparent;
+            box-shadow: 500px;
+            opacity: 1;
+        }
+
+        div.product-container:hover {
+            border: 1px solid #777;
+            border-radius: 30px;
+            opacity: 0.6;
+            transition: 1.5s;
+        }
+
+        div.product-container img {
+            width: 100%;
+            height: auto;
+            border-radius: 10%;
+        }
+
+        a.desc {
+            padding: 15px;
+            text-align: center;
+            color: black;
+            border-color: transparent;
+            border-bottom-color: transparent ;
+            text-decoration-color: transparent;
+            font-size: large;
+
+        }
+
+       </style>
+{% endblock %}

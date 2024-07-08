@@ -1,0 +1,81 @@
+{% extends "core/base.html" %}
+
+{% block title %}{{query}}{% endblock title %}
+
+{% block body %}
+{% if products %}
+{% for products in products %}
+<div class="item">
+    <div class="product-container" id="dropdown">
+        <a href="{% url 'detail' products.id %}">
+            <img class="img" src="{{products.image.url}}"/>
+        </a>
+        <a href="{% url 'detail' products.id %}" class="desc">
+            {{products.name}}
+        </a>
+        <p>$ {{products.price}}</p>
+    </div>
+</div>
+{% endfor %}
+{% else %}
+<h1>NO QUERY FOR {{query}}</h1>
+{% endif %}
+<style>
+    body{
+        padding: 10px;
+        box-sizing: border-box;
+        font-family: sans-serif;
+        
+    }
+    /*
+    .product-container{
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        height: 100vh;
+    }
+    .img{
+        width: 60%;
+        border-radius: 30px;
+    } */
+    /*  */
+    .item{
+        padding: 0% 0% 0% 0%;
+        /*margin: 100px;*/ 
+    }
+    div.product-container {
+        margin: 5px;
+        border: 1px solid #ccc;
+        float: left;
+        width: 180px;
+        border-color: transparent;
+        box-shadow: 500px;
+        opacity: 0.7;
+    }
+
+    div.product-container:hover {
+        border: 1px solid #777;
+        border-radius: 30px;
+        opacity: 10;
+        transition: 1.5s;
+    }
+
+    div.product-container img {
+        width: 100%;
+        height: auto;
+        border-radius: 10%;
+    }
+
+    a.desc {
+        padding: 15px;
+        text-align: center;
+        color: black;
+        border-color: transparent;
+        border-bottom-color: transparent ;
+        text-decoration-color: transparent;
+        font-size: large;
+
+    }
+
+</style>
+{% endblock body %}

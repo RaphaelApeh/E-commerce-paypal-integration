@@ -1,0 +1,23 @@
+{% for products in page_obj %}
+        <div class="product-container" id="dropdown">  
+         <a href="{% url 'detail' products.id %}">
+                <img class="img" src="{{products.image.url}}"/>
+            </a>
+            <a href="{% url 'detail' products.id %}" class="desc">
+                {{products.name}}
+            </a>
+            <p>$ {{products.price}}</p>
+            <p>{{ products.number_of_likes }} -Likes</p>
+            {% if request.user in products.likes.all %}
+            <a href="{% url 'likes' products.id %}" style="color:red;">UnLike</a>
+            {% else %}
+            <a href="{% url 'likes' products.id %}" style="color:green;">Like</a>
+            {% endif %}
+                <p>{{products.category}}</p>
+        </div>
+       </div>
+       {% comment %} {% if forloop.last %}
+       <span hx-target=".item"
+       hx-swap="afterend" hx-get="{% url 'home' %}?page={{ page_obj.number|add:1 }}"  hx-trigger="revealed"></span>
+      {% endif %} {% endcomment %}
+{% endfor %}

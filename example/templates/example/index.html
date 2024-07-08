@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>example</title>
+    <script src="{% static 'js/jquery.js' %}"></script>
+</head>
+<body>
+    <div class="container">
+        <h1 class="head">Testing Ajax</h1>
+        <ul id="list"></ul>
+    </div>
+    <script>
+        $(document).ready(function(){
+            setInterval(function(){
+                $.ajax({
+                type:'GET',
+                url:'{% url "test" %}',
+                success:function(response){
+                    // console.log(response);
+                    $('#list').empty();
+                    for(var key in response.model){
+                        var tem = "<h1>"+ response.model[key].name +"</h1>";
+                        $('#list').append(tem);
+                    }
+                },
+                error:function(){
+                    alert('Error');
+                }
+                });
+            },1000);
+        });
+    </script>
+</body>
+</html>
